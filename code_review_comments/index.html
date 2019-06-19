@@ -1,4 +1,79 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>CodeReviewComments | Golang爱好者</title><link rel="stylesheet" type="text/css" href="/css/normalize.css"><link rel="stylesheet" type="text/css" href="/css/highlight.css"><link rel="stylesheet" type="text/css" href="/css/font.css"><link rel="stylesheet" type="text/css" href="/css/noise.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"></head><body><article class="wrapper"><div class="post-main"><div class="nav"><nav class="container"><a class="sidebar-nav-item active" href="/">Home</a><a class="sidebar-nav-item" href="/archives">Archives</a></nav><div class="container post-meta"><div class="post-time">2019-06-19</div></div></div><div class="container post-header"><h1>CodeReviewComments</h1></div><div class="container post-toc"><details class="toc"><summary class="toc-accordion">目录</summary><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Gofmt"><span class="toc-number">1.</span> <span class="toc-text">Gofmt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comment-Sentences"><span class="toc-number">2.</span> <span class="toc-text">Comment Sentences</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contexts"><span class="toc-number">3.</span> <span class="toc-text">Contexts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copying"><span class="toc-number">4.</span> <span class="toc-text">Copying</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Declaring-Empty-Slices"><span class="toc-number">5.</span> <span class="toc-text">Declaring Empty Slices</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Crypto-Rand"><span class="toc-number">6.</span> <span class="toc-text">Crypto Rand</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Doc-Comments"><span class="toc-number">7.</span> <span class="toc-text">Doc Comments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Don’t-Panic"><span class="toc-number">8.</span> <span class="toc-text">Don’t Panic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Strings"><span class="toc-number">9.</span> <span class="toc-text">Error Strings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples"><span class="toc-number">10.</span> <span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goroutine-Lifetimes"><span class="toc-number">11.</span> <span class="toc-text">Goroutine Lifetimes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handle-Errors"><span class="toc-number">12.</span> <span class="toc-text">Handle Errors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Imports"><span class="toc-number">13.</span> <span class="toc-text">Imports</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ImportBlank"><span class="toc-number">14.</span> <span class="toc-text">ImportBlank</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Import-Dot"><span class="toc-number">15.</span> <span class="toc-text">Import Dot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In-Band-Errors"><span class="toc-number">16.</span> <span class="toc-text">In-Band Errors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Indent-Error-Flow"><span class="toc-number">17.</span> <span class="toc-text">Indent Error Flow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initialisms"><span class="toc-number">18.</span> <span class="toc-text">Initialisms</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interfaces"><span class="toc-number">19.</span> <span class="toc-text">Interfaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Line-Length"><span class="toc-number">20.</span> <span class="toc-text">Line Length</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mixed-Caps"><span class="toc-number">21.</span> <span class="toc-text">Mixed Caps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Named-Result-Parameters"><span class="toc-number">22.</span> <span class="toc-text">Named Result Parameters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Naked-Returns"><span class="toc-number">23.</span> <span class="toc-text">Naked Returns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Package-Comments"><span class="toc-number">24.</span> <span class="toc-text">Package Comments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Package-Names"><span class="toc-number">25.</span> <span class="toc-text">Package Names</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pass-Values"><span class="toc-number">26.</span> <span class="toc-text">Pass Values</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Receiver-Names"><span class="toc-number">27.</span> <span class="toc-text">Receiver Names</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Receiver-Type"><span class="toc-number">28.</span> <span class="toc-text">Receiver Type</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Synchronous-Functions"><span class="toc-number">29.</span> <span class="toc-text">Synchronous Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Useful-Test-Failures"><span class="toc-number">30.</span> <span class="toc-text">Useful Test Failures</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Variable-Names"><span class="toc-number">31.</span> <span class="toc-text">Variable Names</span></a></li></ol></details></div><div class="container post-content"><p>This page collects common comments made during reviews of Go code, so<br>that a single detailed explanation can be referred to by shorthands.<br>This is a laundry list of common mistakes, not a comprehensive style guide.</p>
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="google-site-verification" content>
+  
+  <title>Go代码Review建议</title>
+  <meta name="author" content="申屠家振">
+  <meta name="description" content="This page collects common comments made during reviews of Go code, sothat a single detailed explanation can be referred to by shorthands.This is a lau">
+  
+  
+  <meta property="og:title" content="Go代码Review建议">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Golang爱好者">
+  <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
+  <link rel="alternate" href="/atom.xml" title="Golang爱好者" type="application/atom+xml">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/m.min.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+</html>
+<body>
+  <a id="top"></a>
+  <div id="main">
+    <div class="behind">
+      <a href="/" class="back black-color">
+        <svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M2 30 L30 2 M30 30 L2 2"></path>
+        </svg>
+      </a>
+      <div class="description">
+        &nbsp;Funny Golang
+      </div>
+    </div>
+    <div class="main-ctnr">
+      
+
+  <article class="standard post">
+    <div class="title">
+      
+  
+    <h1 class="page-title center">
+        Go代码Review建议
+    </h1>
+  
+
+
+    </div>
+    <div class="meta center">
+      
+<time datetime="2019-06-19T15:08:22.000Z">
+<svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
+  </svg>
+  &nbsp;
+  2019-06-19
+</time>
+
+
+
+
+
+
+
+    </div>
+    <hr>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Gofmt"><span class="toc-text">Gofmt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comment-Sentences"><span class="toc-text">Comment Sentences</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contexts"><span class="toc-text">Contexts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Copying"><span class="toc-text">Copying</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Declaring-Empty-Slices"><span class="toc-text">Declaring Empty Slices</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Crypto-Rand"><span class="toc-text">Crypto Rand</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Doc-Comments"><span class="toc-text">Doc Comments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Don’t-Panic"><span class="toc-text">Don’t Panic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Strings"><span class="toc-text">Error Strings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples"><span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Goroutine-Lifetimes"><span class="toc-text">Goroutine Lifetimes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Handle-Errors"><span class="toc-text">Handle Errors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Imports"><span class="toc-text">Imports</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ImportBlank"><span class="toc-text">ImportBlank</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Import-Dot"><span class="toc-text">Import Dot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#In-Band-Errors"><span class="toc-text">In-Band Errors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Indent-Error-Flow"><span class="toc-text">Indent Error Flow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Initialisms"><span class="toc-text">Initialisms</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interfaces"><span class="toc-text">Interfaces</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Line-Length"><span class="toc-text">Line Length</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mixed-Caps"><span class="toc-text">Mixed Caps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Named-Result-Parameters"><span class="toc-text">Named Result Parameters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Naked-Returns"><span class="toc-text">Naked Returns</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Package-Comments"><span class="toc-text">Package Comments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Package-Names"><span class="toc-text">Package Names</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pass-Values"><span class="toc-text">Pass Values</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Receiver-Names"><span class="toc-text">Receiver Names</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Receiver-Type"><span class="toc-text">Receiver Type</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Synchronous-Functions"><span class="toc-text">Synchronous Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Useful-Test-Failures"><span class="toc-text">Useful Test Failures</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Variable-Names"><span class="toc-text">Variable Names</span></a></li></ol>
+    
+    <div class="picture-container">
+      
+    </div>
+    <p>This page collects common comments made during reviews of Go code, so<br>that a single detailed explanation can be referred to by shorthands.<br>This is a laundry list of common mistakes, not a comprehensive style guide.</p>
 <p>You can view this as a supplement to <a href="https://golang.org/doc/effective_go.html" target="_blank" rel="noopener">Effective Go</a>.</p>
 <p><strong>Please <a href="https://golang.org/issue/new?title=wiki%3A+CodeReviewComments+change&body=&labels=Documentation" target="_blank" rel="noopener">discuss changes</a> before editing this page</strong>, even <em>minor</em> ones. Many people have opinions and this is not the place for edit wars.</p>
 <h2 id="Gofmt"><a href="#Gofmt" class="headerlink" title="Gofmt"></a>Gofmt</h2><p>Run <a href="https://golang.org/cmd/gofmt/" target="_blank" rel="noopener">gofmt</a> on your code to automatically fix the majority of mechanical style issues. Almost all Go code in the wild uses <code>gofmt</code>. The rest of this document addresses non-mechanical style points.</p>
@@ -173,4 +248,67 @@ Avoid meaningless package names like util, common, misc, api, types, and interfa
 <p>In any case, the onus is on you to fail with a helpful message to whoever’s debugging your code in the future.</p>
 <h2 id="Variable-Names"><a href="#Variable-Names" class="headerlink" title="Variable Names"></a>Variable Names</h2><p>Variable names in Go should be short rather than long.  This is especially true for local variables with limited scope.  Prefer <code>c</code> to <code>lineCount</code>.  Prefer <code>i</code> to <code>sliceIndex</code>.</p>
 <p>The basic rule: the further from its declaration that a name is used, the more descriptive the name must be. For a method receiver, one or two letters is sufficient. Common variables such as loop indices and readers can be a single letter (<code>i</code>, <code>r</code>). More unusual things and global variables need more descriptive names.</p>
-</div></div><div class="post-main post-comment"></div></article></body></html>
+
+
+  </article>
+  </script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <div class="busuanzi center">
+    page PV:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    site PV:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    site UV:&nbsp;<span id="busuanzi_value_site_uv"></span>
+  </div>
+
+
+    
+
+
+
+
+    </div>
+  </div>
+  <footer class="page-footer"><div class="clearfix">
+</div>
+<div class="right-foot">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"></path>
+        </svg>
+        </a>
+        © 申屠家振 2019
+    </div>
+    <div class="secondrow">
+        <a href="">
+        申屠家振
+        </a>
+    </div>
+</div>
+<div class="clearfix">
+</div>
+</footer>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="/js/search.min.js"></script>
+<script type="text/javascript">
+
+// disqus scripts
+
+
+// dropdown scripts
+$(".dropdown").click(function(event) {
+  var current = $(this);
+  event.stopPropagation();
+  $(current).children(".dropdown-content")[($(current).children(".dropdown-content").hasClass("open"))?'removeClass':'addClass']("open")
+});
+$(document).click(function(){
+    $(".dropdown-content").removeClass("open");
+})
+
+var path = "/search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+
+</script>
+
+</body>
+</html>

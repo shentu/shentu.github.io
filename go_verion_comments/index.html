@@ -1,4 +1,90 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Go版本发布历史 | Golang爱好者</title><link rel="stylesheet" type="text/css" href="/css/normalize.css"><link rel="stylesheet" type="text/css" href="/css/highlight.css"><link rel="stylesheet" type="text/css" href="/css/font.css"><link rel="stylesheet" type="text/css" href="/css/noise.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"></head><body><article class="wrapper"><div class="post-main"><div class="nav"><nav class="container"><a class="sidebar-nav-item active" href="/">Home</a><a class="sidebar-nav-item" href="/archives">Archives</a></nav><div class="container post-meta"><div class="post-time">2019-06-18</div></div></div><div class="container post-header"><h1>Go版本发布历史</h1></div><div class="container post-toc"><details class="toc"><summary class="toc-accordion">目录</summary><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#版本号"><span class="toc-number">1.</span> <span class="toc-text">版本号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布周期"><span class="toc-number">2.</span> <span class="toc-text">发布周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#支持周期"><span class="toc-number">3.</span> <span class="toc-text">支持周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go1-12-2019-02-25发布"><span class="toc-number">4.</span> <span class="toc-text">Go1.12 (2019/02/25发布)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Go1-12-1-2019-03-14发布"><span class="toc-number">4.1.</span> <span class="toc-text">Go1.12.1 (2019/03/14发布)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go1-12-2-2019-04-05发布"><span class="toc-number">4.2.</span> <span class="toc-text">Go1.12.2 (2019/04/05发布)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go1-12-3-2019-04-08发布"><span class="toc-number">4.3.</span> <span class="toc-text">Go1.12.3 (2019/04/08发布)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go1-12-4-2019-04-11发布"><span class="toc-number">4.4.</span> <span class="toc-text">Go1.12.4 (2019/04/11发布)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go1-12-5-2019-05-06发布"><span class="toc-number">4.5.</span> <span class="toc-text">Go1.12.5 (2019/05/06发布)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go1-12-6-2019-06-11发布"><span class="toc-number">4.6.</span> <span class="toc-text">Go1.12.6 (2019/06/11发布)</span></a></li></ol></li></ol></details></div><div class="container post-content"><h2 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h2><p>Go语言发布版本号遵循Version.Marjor.Minor的格式。比如Go1.12.5，代表了Version1，Marjor12，Minor5。</p>
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="google-site-verification" content>
+  
+  <title>Go版本发布历史</title>
+  <meta name="author" content="申屠家振">
+  <meta name="description" content="版本号Go语言发布版本号遵循Version.Marjor.Minor的格式。比如Go1.12.5，代表了Version1，Marjor12，Minor5。
+Version代表语言规范的版本。如Go1和即将发布的Go2，他们在语法，数据类型等层面都有所区别。
+Marjor代表主要的版本。编程语言的开发">
+  
+  
+  <meta property="og:title" content="Go版本发布历史">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Golang爱好者">
+  <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
+  <link rel="alternate" href="/atom.xml" title="Golang爱好者" type="application/atom+xml">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/m.min.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+</html>
+<body>
+  <a id="top"></a>
+  <div id="main">
+    <div class="behind">
+      <a href="/" class="back black-color">
+        <svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M2 30 L30 2 M30 30 L2 2"></path>
+        </svg>
+      </a>
+      <div class="description">
+        &nbsp;Funny Golang
+      </div>
+    </div>
+    <div class="main-ctnr">
+      
+
+  <article class="standard post">
+    <div class="title">
+      
+  
+    <h1 class="page-title center">
+        Go版本发布历史
+    </h1>
+  
+
+
+    </div>
+    <div class="meta center">
+      
+<time datetime="2019-06-18T15:08:34.000Z">
+<svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
+  </svg>
+  &nbsp;
+  2019-06-18
+</time>
+
+
+
+
+
+
+    
+    &nbsp;
+    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <circle cx="24" cy="8" r="2"></circle>
+      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
+    </svg>
+    &nbsp;
+    <a href="/tags/版本/">版本</a>
+
+
+    </div>
+    <hr>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#版本号"><span class="toc-text">版本号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发布周期"><span class="toc-text">发布周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#支持周期"><span class="toc-text">支持周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Go1-12-2019-02-25发布"><span class="toc-text">Go1.12 (2019/02/25发布)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Go1-12-1-2019-03-14发布"><span class="toc-text">Go1.12.1 (2019/03/14发布)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go1-12-2-2019-04-05发布"><span class="toc-text">Go1.12.2 (2019/04/05发布)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go1-12-3-2019-04-08发布"><span class="toc-text">Go1.12.3 (2019/04/08发布)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go1-12-4-2019-04-11发布"><span class="toc-text">Go1.12.4 (2019/04/11发布)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go1-12-5-2019-05-06发布"><span class="toc-text">Go1.12.5 (2019/05/06发布)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Go1-12-6-2019-06-11发布"><span class="toc-text">Go1.12.6 (2019/06/11发布)</span></a></li></ol></li></ol>
+    
+    <div class="picture-container">
+      
+    </div>
+    <h2 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h2><p>Go语言发布版本号遵循Version.Marjor.Minor的格式。比如Go1.12.5，代表了Version1，Marjor12，Minor5。</p>
 <p>Version代表语言规范的版本。如Go1和即将发布的Go2，他们在语法，数据类型等层面都有所区别。</p>
 <p>Marjor代表主要的版本。编程语言的开发也要分时间分阶段的逐步完善，语言特性及标准库等等被分到不同的Marjor中去实现再发布。</p>
 <p>Minor代表次要的版本。只对重要的功能问题及重要的安全问题进行修复。</p>
@@ -11,4 +97,67 @@
 <h3 id="Go1-12-4-2019-04-11发布"><a href="#Go1-12-4-2019-04-11发布" class="headerlink" title="Go1.12.4 (2019/04/11发布)"></a>Go1.12.4 (2019/04/11发布)</h3><p>修复了在旧版本GNU/Linux上使用了预构建的二进制版本，导致当使用cgo时链接程序失败的问题。只有遇到该问题的Linux用户需要升级。</p>
 <h3 id="Go1-12-5-2019-05-06发布"><a href="#Go1-12-5-2019-05-06发布" class="headerlink" title="Go1.12.5 (2019/05/06发布)"></a>Go1.12.5 (2019/05/06发布)</h3><p> 包含对compiler, linker, go命令行, runtime的修复, 以及对标准库中os包的修复。详情可查看<a href="https://github.com/golang/go/issues?q=milestone%3AGo1.12.5" target="_blank" rel="noopener">Go1.12.5 milestone</a>。</p>
 <h3 id="Go1-12-6-2019-06-11发布"><a href="#Go1-12-6-2019-06-11发布" class="headerlink" title="Go1.12.6 (2019/06/11发布)"></a>Go1.12.6 (2019/06/11发布)</h3><p>包含对compiler, linker, go命令行, 以及对标准库中crypto/x509,net/http以及os包的修复。详情可查看Go1.12.6 milestone。</p>
-</div></div><div class="post-main post-comment"></div></article></body></html>
+
+
+  </article>
+  </script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <div class="busuanzi center">
+    page PV:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    site PV:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    site UV:&nbsp;<span id="busuanzi_value_site_uv"></span>
+  </div>
+
+
+    
+
+
+
+
+    </div>
+  </div>
+  <footer class="page-footer"><div class="clearfix">
+</div>
+<div class="right-foot">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"></path>
+        </svg>
+        </a>
+        © 申屠家振 2019
+    </div>
+    <div class="secondrow">
+        <a href="">
+        申屠家振
+        </a>
+    </div>
+</div>
+<div class="clearfix">
+</div>
+</footer>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="/js/search.min.js"></script>
+<script type="text/javascript">
+
+// disqus scripts
+
+
+// dropdown scripts
+$(".dropdown").click(function(event) {
+  var current = $(this);
+  event.stopPropagation();
+  $(current).children(".dropdown-content")[($(current).children(".dropdown-content").hasClass("open"))?'removeClass':'addClass']("open")
+});
+$(document).click(function(){
+    $(".dropdown-content").removeClass("open");
+})
+
+var path = "/search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+
+</script>
+
+</body>
+</html>
