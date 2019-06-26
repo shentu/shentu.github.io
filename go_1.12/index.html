@@ -9,11 +9,8 @@
   
   <title>Go 1.12发布说明</title>
   <meta name="author" content="申屠家振">
-  <meta name="description" content="Introduction to Go 1.12
-
-
-  The latest Go release, version 1.12, arrives six months after Go 1.11.
-  Most of its changes are in the implementation of ">
+  <meta name="description" content="简介  The latest Go release, version 1.12, arrives six months after Go 1.11.
+  Most of its changes are in the implementation of the toolchain, runtime, ">
   
   
   <meta property="og:title" content="Go 1.12发布说明">
@@ -81,20 +78,14 @@
     </div>
     <hr>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#introduction"><span class="toc-text">Introduction to Go 1.12</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#language"><span class="toc-text">Changes to the language</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ports"><span class="toc-text">Ports</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aix"><span class="toc-text">AIX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#darwin"><span class="toc-text">Darwin</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tools"><span class="toc-text">Tools</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vet"><span class="toc-text">go tool vet no longer supported</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tour"><span class="toc-text">Tour</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gocache"><span class="toc-text">Build cache requirement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#binary-only"><span class="toc-text">Binary-only packages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cgo"><span class="toc-text">Cgo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#modules"><span class="toc-text">Modules</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#compiler"><span class="toc-text">Compiler toolchain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#godoc"><span class="toc-text">godoc and go doc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#trace"><span class="toc-text">Trace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assembler"><span class="toc-text">Assembler</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#runtime"><span class="toc-text">Runtime</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#library"><span class="toc-text">Core library</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tls_1_3"><span class="toc-text">TLS 1.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#minor_library_changes"><span class="toc-text">Minor changes to the library</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#language"><span class="toc-text">Changes to the language</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ports"><span class="toc-text">Ports</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#windows"><span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aix"><span class="toc-text">AIX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#darwin"><span class="toc-text">Darwin</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tools"><span class="toc-text">Tools</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vet"><span class="toc-text">go tool vet no longer supported</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tour"><span class="toc-text">Tour</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gocache"><span class="toc-text">Build cache requirement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#binary-only"><span class="toc-text">Binary-only packages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cgo"><span class="toc-text">Cgo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#modules"><span class="toc-text">Modules</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#compiler"><span class="toc-text">Compiler toolchain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#godoc"><span class="toc-text">godoc and go doc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#trace"><span class="toc-text">Trace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assembler"><span class="toc-text">Assembler</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#runtime"><span class="toc-text">Runtime</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#library"><span class="toc-text">Core library</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tls_1_3"><span class="toc-text">TLS 1.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#minor_library_changes"><span class="toc-text">Minor changes to the library</span></a></li></ol></li></ol>
     
     <div class="picture-container">
       
     </div>
-    <h2 id="introduction">Introduction to Go 1.12</h2>
-
-<p>
-  The latest Go release, version 1.12, arrives six months after <a href="go1.11">Go 1.11</a>.
-  Most of its changes are in the implementation of the toolchain, runtime, and libraries.
-  As always, the release maintains the Go 1 <a href="/doc/go1compat">promise of compatibility</a>.
-  We expect almost all Go programs to continue to compile and run as before.
-</p>
-
+    <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>  The latest Go release, version 1.12, arrives six months after <a href="go1.11">Go 1.11</a>.
+  Most of its changes are in the implementation of the toolchain, runtime, and libraries.<br>  As always, the release maintains the Go 1 <a href="/doc/go1compat">promise of compatibility</a>.
+  We expect almost all Go programs to continue to compile and run as before.</p>
 <h2 id="language">Changes to the language</h2>
 
 <p>
